@@ -12,8 +12,8 @@ public struct GeoPoint {
     let latitude: Double
     let longitude: Double
     let elevation: Double
+    // TODO: array conexiones
 }
-
 struct Route {
     let name: String
     var points: [GeoPoint] = []
