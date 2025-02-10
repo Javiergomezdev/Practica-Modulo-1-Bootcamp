@@ -102,7 +102,13 @@ class RoutesService {
         
         return distancia
     }
-    
+    func distancePointsRoute(of route: Route) -> Double {
+            guard route.points.count > 1 else { return 0.0 }
+        let distances = zip(route.points, route.points.dropFirst()).map { (point1, point2) in
+            distanceBetween(point1: point1, point2: point2)
+            }
+            return distances.reduce(0, +)
+        }
     
     
         

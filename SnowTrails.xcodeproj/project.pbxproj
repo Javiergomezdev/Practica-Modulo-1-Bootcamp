@@ -19,7 +19,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		22D3619B2D55087900212927 /* SnowTrails */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = SnowTrails; path = "/Users/javiergomez/Keepcoding/Keepcoding/Swift/EJERCICIOS-SWIFT/Practica FINAL SWIFT/SnowTrails/build/Debug/SnowTrails"; sourceTree = "<absolute>"; };
+		225DDCD22D5AC269005F8AF0 /* SnowTrails */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SnowTrails; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -58,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				22D3619D2D55087900212927 /* SnowTrails */,
+				225DDCD22D5AC269005F8AF0 /* SnowTrails */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,7 +84,7 @@
 			packageProductDependencies = (
 			);
 			productName = SnowTrails;
-			productReference = 22D3619B2D55087900212927 /* SnowTrails */;
+			productReference = 225DDCD22D5AC269005F8AF0 /* SnowTrails */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
