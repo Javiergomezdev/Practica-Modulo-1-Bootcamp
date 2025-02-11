@@ -22,22 +22,9 @@
 		225DDCD22D5AC269005F8AF0 /* SnowTrails */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SnowTrails; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		22D361AC2D551AB800212927 /* Exceptions for "SnowTrails" folder in "SnowTrails" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				UserService.swift,
-			);
-			target = 22D3619A2D55087900212927 /* SnowTrails */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		22D3619D2D55087900212927 /* SnowTrails */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				22D361AC2D551AB800212927 /* Exceptions for "SnowTrails" folder in "SnowTrails" target */,
-			);
 			path = SnowTrails;
 			sourceTree = "<group>";
 		};

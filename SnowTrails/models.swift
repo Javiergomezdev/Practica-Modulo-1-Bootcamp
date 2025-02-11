@@ -21,10 +21,10 @@ struct Route {
 
 enum UserRole: String {
     case admin             // usuario de prueba: Adminuserkeepcodinf1 Email: adminuser@keepcoding.es
-    case user              // usuario de prueba: Regularuserkeepcoding1 Email: regularuser@keepcoding.es
+    case regular              // usuario de prueba: Regularuserkeepcoding1 Email: regularuser@keepcoding.es
 }
 // sino es ninguno de estos casos o coincidiendo con los datos debe sacar error
-struct User {
+public struct User {
     let name: String
     let role: UserRole
     let email: String
