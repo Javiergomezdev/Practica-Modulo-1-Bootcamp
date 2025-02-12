@@ -22,6 +22,7 @@ class MenuController {
     
     func start() {
         var isRunning = true
+        messagePrinter.printDeveloperMessage("Menu de bienvenida", level: .info)
         while isRunning {
             messagePrinter.printUserMessage("\nBienvenido a SnowTrails")
             messagePrinter.printUserMessage("1. Acceder como usuario")
@@ -36,6 +37,7 @@ class MenuController {
                         showUserMenu(user: user)
                     } else {
                         messagePrinter.printUserMessage("Este usuario es administrador. Usa la opción 2.")
+                        messagePrinter.printDeveloperMessage("Ha elegido opcion sin credenciales adecuadas", level: .info)
                     }
                 }
             case "2":
@@ -44,6 +46,7 @@ class MenuController {
                         showAdminMenu(user: user)
                     } else {
                         messagePrinter.printUserMessage("Este usuario es regular. Usa la opción 1.")
+                        messagePrinter.printDeveloperMessage("Ha elegido opcion sin credenciales adecuadas", level: .info)
                     }
                 }
             case "3":
@@ -55,14 +58,12 @@ class MenuController {
         }
     }
     
+    
     /// Menú para usuarios regulares.
     func showUserMenu(user: User) {
         var inUserMenu = true
         while inUserMenu {
-            messagePrinter.printUserMessage("\nMenú usuario - Selecciona una opción:")
-            messagePrinter.printUserMessage("1. Ver todas las rutas")
-            messagePrinter.printUserMessage("2. Obtener la ruta más corta entre dos puntos")
-            messagePrinter.printUserMessage("3. Log out")
+            messagePrinter.printUserMessage("Menú usuario - Selecciona una opción: \n1. Ver todas las rutas \n2. Obtener la ruta más corta entre dos puntos \n3. Log out")
             
             guard let choice = readLine() else { continue }
             switch choice {
@@ -87,12 +88,7 @@ class MenuController {
     func showAdminMenu(user: User) {
         var inAdminMenu = true
         while inAdminMenu {
-            messagePrinter.printUserMessage("\nMenú admin - Selecciona una opción:")
-            messagePrinter.printUserMessage("1. Ver todos los usuarios")
-            messagePrinter.printUserMessage("2. Añadir usuario")
-            messagePrinter.printUserMessage("3. Eliminar usuario")
-            messagePrinter.printUserMessage("4. Añadir punto a una ruta")
-            messagePrinter.printUserMessage("5. Logout")
+            messagePrinter.printUserMessage("Menú admin - Selecciona una opción: \n1. Ver todos los usuarios \n2. Añadir usuario \n3. Eliminar usuario \n4. Añadir punto a una ruta \n5. Logout")
             
             guard let choice = readLine() else { continue }
             switch choice {
@@ -132,4 +128,5 @@ class MenuController {
             }
         }
     }
+    
 }

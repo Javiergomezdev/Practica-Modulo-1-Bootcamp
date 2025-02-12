@@ -3,24 +3,33 @@
 //  SnowTrails
 //
 //  Created by Javier Gomez on 11/02/25.
-//  
-import Foundation
-import OSLog
+//
 
-enum LogLevel: String {
-    case info = "[INFO]"
-    case debug = "[DEBUG]"
-    case error = "[ERROR]"
+import OSLog
+import Foundation
+
+enum LogLevel {
+    case info
+    case debug
+    case error
 }
 
 class MessagePrinter {
+    private let logger = Logger(subsystem: "SnowTrails", category: "MessagePrinter")
     func printUserMessage(_ message: String) {
         print(message)
     }
-    
-    func printLog(_ message: String, level: LogLevel = .debug) {
-        print("\(level.rawValue) \(message)")
+    func printDeveloperMessage(_ message: String, level: LogLevel = .debug) {
+        switch level {
+        case .info:
+            logger.info("\(message, privacy: .public)")
+        case .debug:
+            logger.debug("\(message, privacy: .public)")
+        case .error:
+            logger.error("\(message, privacy: .public)")
+        }
     }
+    
 }
 
 class LoginController {
@@ -29,41 +38,47 @@ class LoginController {
     let userService: UserService
     let messagePrinter: MessagePrinter
 
+    
     init(userService: UserService, messagePrinter: MessagePrinter) {
         self.userService = userService
         self.messagePrinter = messagePrinter
     }
-            // Se encarga de solicitar las credenciales al usuario
+    // TOCHECK: Se encarga de solicitar las credenciales al usuario y se colocan los mensajes del Logger
     func login() -> User? {
         messagePrinter.printUserMessage("Introduce tu email:")
+       
+        
         guard let email = readLine(), !email.isEmpty else {
             messagePrinter.printUserMessage("El email no puede estar vacío.")
+            messagePrinter.printDeveloperMessage("Error: El email no puede estar vacío.", level: .error)
             return nil
         }
         
         messagePrinter.printUserMessage("Introduce tu contraseña:")
+        messagePrinter.printDeveloperMessage("Solicitando contraseña al usuario.", level: .info)
+        
         guard let password = readLine(), !password.isEmpty else {
             messagePrinter.printUserMessage("La contraseña no puede estar vacía.")
+            messagePrinter.printDeveloperMessage("Error: La contraseña no puede estar vacía.", level: .error)
             return nil
         }
+        
         guard let user = userService.findUser(ByEmail: email) else {
             messagePrinter.printUserMessage("Usuario no encontrado.")
+            messagePrinter.printDeveloperMessage("Error: Usuario no encontrado para email \(email).", level: .error)
             return nil
         }
+        
         if user.password == password {
-            messagePrinter.printLog("Login correcto para \(user.name)", level: .info)
             messagePrinter.printUserMessage("Bienvenido, \(user.name).")
+            messagePrinter.printDeveloperMessage("Login correcto para \(user.name).", level: .info)
             return user
         } else {
             messagePrinter.printUserMessage("Contraseña incorrecta.")
-            messagePrinter.printLog("Intento de login fallido para \(email)", level: .error)
+            messagePrinter.printDeveloperMessage("Intento de login fallido para \(email).", level: .error)
             return nil
         }
     }
-}
-// Se crea un método auxiliar que valida las credenciales sin depender de readLine().
-// Esto permite testear la lógica del login sin tener que simular la entrada de la consola.
-extension LoginController {
     func validateLogin(email: String, password: String) -> User? {
         guard let user = userService.findUser(ByEmail: email) else {
             return nil
@@ -71,3 +86,4 @@ extension LoginController {
         return user.password == password ? user : nil
     }
 }
+    
