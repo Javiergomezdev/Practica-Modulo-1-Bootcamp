@@ -9,7 +9,7 @@ import Foundation
 public class UserService {
     
     var users: [User] = []
-    init() {
+    public init() {
         loadDefaultUsers( )
     }
     private func loadDefaultUsers() {
@@ -34,7 +34,7 @@ public class UserService {
     }
     
     //funcion añadir usuario
-    func addUser(name: String, role: UserRole = .regular, email: String, password: String) -> User?{
+    public func addUser(name: String, role: UserRole = .regular, email: String, password: String) -> User?{
         guard isValidEmail(email) else {
             MessagePrinter().printDeveloperMessage("Email no válido debe de tener formato correcto.", level: .error)
             MessagePrinter().printUserMessage("Email no válido debe de tener formato correcto.")

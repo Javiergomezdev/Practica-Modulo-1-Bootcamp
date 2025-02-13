@@ -23,14 +23,50 @@
 		2260F5DC2D5DFE6000F44780 /* SnowTrailsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnowTrailsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		22161C482D5E2772007DE796 /* Exceptions for "SnowTrailsTests" folder in "SnowTrails" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				SnowTrailsTests.swift,
+			);
+			target = 22D3619A2D55087900212927 /* SnowTrails */;
+		};
+		22161C492D5E2772007DE796 /* Exceptions for "SnowTrailsTests" folder in "SnowTrailsTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				SnowTrailsTests.swift,
+			);
+			target = 2260F5DB2D5DFE6000F44780 /* SnowTrailsTests */;
+		};
+		22161C4F2D5E32C2007DE796 /* Exceptions for "SnowTrails" folder in "SnowTrailsTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Controllers/LoginController.swift,
+				Controllers/MenuController.swift,
+				main.swift,
+				Models.swift,
+				Services/RoutesService.swift,
+				Services/UserService.swift,
+			);
+			target = 2260F5DB2D5DFE6000F44780 /* SnowTrailsTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		2260F5DD2D5DFE6000F44780 /* SnowTrailsTests */ = {
+		22161C462D5E2772007DE796 /* SnowTrailsTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				22161C482D5E2772007DE796 /* Exceptions for "SnowTrailsTests" folder in "SnowTrails" target */,
+				22161C492D5E2772007DE796 /* Exceptions for "SnowTrailsTests" folder in "SnowTrailsTests" target */,
+			);
 			path = SnowTrailsTests;
 			sourceTree = "<group>";
 		};
 		22D3619D2D55087900212927 /* SnowTrails */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				22161C4F2D5E32C2007DE796 /* Exceptions for "SnowTrails" folder in "SnowTrailsTests" target */,
+			);
 			path = SnowTrails;
 			sourceTree = "<group>";
 		};
@@ -60,7 +96,7 @@
 				22D3619D2D55087900212927 /* SnowTrails */,
 				225DDCD22D5AC269005F8AF0 /* SnowTrails */,
 				2260F5DC2D5DFE6000F44780 /* SnowTrailsTests.xctest */,
-				2260F5DD2D5DFE6000F44780 /* SnowTrailsTests */,
+				22161C462D5E2772007DE796 /* SnowTrailsTests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,9 +114,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				2260F5DD2D5DFE6000F44780 /* SnowTrailsTests */,
 			);
 			name = SnowTrailsTests;
 			packageProductDependencies = (
@@ -102,6 +135,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				22161C462D5E2772007DE796 /* SnowTrailsTests */,
 				22D3619D2D55087900212927 /* SnowTrails */,
 			);
 			name = SnowTrails;
