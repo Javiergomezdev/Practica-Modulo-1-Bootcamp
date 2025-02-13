@@ -19,7 +19,7 @@ struct Route {
     var points: [GeoPoint] = []
 }
 
-enum UserRole: String {
+public enum UserRole: String {
     case admin             // usuario de prueba: Adminuserkeepcodinf1 Email: adminuser@keepcoding.es
     case regular              // usuario de prueba: Regularuserkeepcoding1 Email: regularuser@keepcoding.es
 }

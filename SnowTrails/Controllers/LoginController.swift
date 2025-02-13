@@ -43,40 +43,48 @@ class LoginController {
         self.userService = userService
         self.messagePrinter = messagePrinter
     }
-    // TOCHECK: Se encarga de solicitar las credenciales al usuario y se colocan los mensajes del Logger
-    func login() -> User? {
+    // Se encarga de solicitar las credenciales al usuario y se colocan los mensajes del Logger
+    func login(onSuccess: (User) -> Void, onFailure: (String) -> Void) {
+        
         messagePrinter.printUserMessage("Introduce tu email:")
-       
+        messagePrinter.printDeveloperMessage( "Solicitando email al usuario.", level: .info)
         
         guard let email = readLine(), !email.isEmpty else {
-            messagePrinter.printUserMessage("El email no puede estar vacío.")
-            messagePrinter.printDeveloperMessage("Error: El email no puede estar vacío.", level: .error)
-            return nil
+            let errorMessage = ("El email no puede estar vacío.")
+            messagePrinter.printUserMessage(errorMessage)
+            messagePrinter.printDeveloperMessage((errorMessage), level: .error)
+            onFailure(errorMessage)
+            return
         }
         
         messagePrinter.printUserMessage("Introduce tu contraseña:")
         messagePrinter.printDeveloperMessage("Solicitando contraseña al usuario.", level: .info)
         
         guard let password = readLine(), !password.isEmpty else {
-            messagePrinter.printUserMessage("La contraseña no puede estar vacía.")
+            let errorMessage = ("La contraseña no puede estar vacía")
+            messagePrinter.printUserMessage(errorMessage)
             messagePrinter.printDeveloperMessage("Error: La contraseña no puede estar vacía.", level: .error)
-            return nil
+            onFailure(errorMessage)
+            return
         }
         
         guard let user = userService.findUser(ByEmail: email) else {
-            messagePrinter.printUserMessage("Usuario no encontrado.")
-            messagePrinter.printDeveloperMessage("Error: Usuario no encontrado para email \(email).", level: .error)
-            return nil
+            let errorMessage = ("Usuario no encontrado.")
+            messagePrinter.printUserMessage(errorMessage)
+            messagePrinter.printDeveloperMessage("Error: \(errorMessage) para email \(email).", level: .error)
+            onFailure(errorMessage)
+            return
         }
         
         if user.password == password {
             messagePrinter.printUserMessage("Bienvenido, \(user.name).")
             messagePrinter.printDeveloperMessage("Login correcto para \(user.name).", level: .info)
-            return user
+            onSuccess(user)
         } else {
-            messagePrinter.printUserMessage("Contraseña incorrecta.")
+            let errorMessage = ("Contraseña incorrecta.")
+            messagePrinter.printUserMessage(errorMessage)
             messagePrinter.printDeveloperMessage("Intento de login fallido para \(email).", level: .error)
-            return nil
+            onFailure(errorMessage)
         }
     }
     func validateLogin(email: String, password: String) -> User? {
