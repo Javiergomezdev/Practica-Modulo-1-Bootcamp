@@ -1,5 +1,5 @@
 # Practica Modulo 1 Bootcamp
- practica final para el modulo Swift del bootcamp mobile XIX Keepcoding
+ Practica final para el modulo Swift del bootcamp mobile XIX Keepcoding
 🏔 SnowTrails
 
 SnowTrails es una aplicación de consola escrita en Swift que permite a los usuarios explorar rutas de montaña, gestionar usuarios y calcular distancias geográficas entre puntos.
