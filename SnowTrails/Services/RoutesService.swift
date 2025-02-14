@@ -33,7 +33,7 @@ class RoutesService {
     }
     
     /// Busca un punto geográfico por su nombre.
-    private func findPoint(byName name: String) -> GeoPoint? {
+    public func findPoint(byName name: String) -> GeoPoint? {
         return points.first { $0.name == name }
     }
     
